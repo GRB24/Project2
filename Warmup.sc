@@ -45,8 +45,10 @@ def diff2 (a: Int, b: Int): Boolean = {
 twinprimes(5,7)
 
 //Twin Primes List
-def twinprimeslist (n: Int): List[Int]=
-List.range(2, n+1).filter2.prime(n)
+def twinprimeslist (n: Int): List[Int]= {
+
+}
+
 
 
 //Goldbach's Conjecture
