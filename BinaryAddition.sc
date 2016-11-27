@@ -1,8 +1,6 @@
 // COSC 455 - Programming Languages: Implementation and Design
 // Project 2
-
 // NAME: Garrett Bates
-
 
 // Test Cases
 val pTest1: List[Int] = List (1, 1, 1, 1, 0)
@@ -32,7 +30,9 @@ def getNextCarryBit(pBit: Boolean, qBit: Boolean, carrybit: Boolean): Boolean = 
 def addBits(pBit: Boolean, qBit: Boolean, carryBit: Boolean): Boolean = ???
 
 // This function does the binary addition of two boolean lists. Note that the lists may not be equal in length.
-def doBinaryAddition(pBits: List[Boolean], qBits: List[Boolean], carryBit: Boolean): List[Boolean] = ???
+def doBinaryAddition(pBits: List[Boolean], qBits: List[Boolean], carryBit: Boolean): List[Boolean] = {
+  (pBits)
+}
 
 // This function takes a list of any type and returns the list in reverse order.
 def reverseList(aList: List): List = aList
@@ -54,11 +54,11 @@ def convertBooleanListToIntList(booleanList: List): List[Int] = booleanList.map{
     5. Convert the answer back to binary integer form for output
   Note that the initial carry bit is assumed to be 0 (i.e., false).
 */
-def binaryAddition(pList: List[Int], qList: List[Int]): List[Int] =
-convertBooleanListToIntList(reverseList(doBinaryAddition(reverseList(convertIntToBoolean(pList)),
-  reverseList(convertIntListToBooleanList(qList)),
-  false)))
+def binaryAddition(pList: List[Int], qList: List[Int]): List[Int] = {
+  convertBooleanListToIntList(reverseList(doBinaryAddition(reverseList(convertIntToBoolean(pList)), reverseList(convertIntListToBooleanList(qList)), false)))
+}
 
+def convertIntToBoolean = ???
 
 // Testing binary addition.
 if (binaryAddition(pTest1, qTest1).equals(test1ExectedSolution)) println("Test 1 passes!") else println("Test 1 fails.")

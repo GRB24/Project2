@@ -14,30 +14,10 @@ def primeFind (n: Int, divisor: Int): Boolean = {
     case (false, false) => return true
     }
 }
-//test
+//Test
 prime(5)
+prime(44)
 //Twin Primes
-/*
-def twinprimes (x: Int, y: Int): Boolean = {
-  if (x == prime(x) && y== prime(y))
-    return true
-    if (diff2(x,y) == true)
-      {
-        return true
-      }
-  else
-    return false
-}
-def diff2 (a: Int, b: Int): Boolean = {
-  if (a-b==2 | b-a==2){
-    return true
-  }
-  else {
-    return false
-  }
-}
- */
-
 def twinprimes (x: Int, y: Int): Boolean = {
   (prime(x)== true, prime(y) == true, diff2(x, y) == true) match{
     case (true, true, true) => return true
@@ -50,16 +30,16 @@ def diff2 (a: Int, b: Int): Boolean = {
     case false => return false
   }
 }
+//Test
 twinprimes(3,5)
-
+twinprimes(3, 11)
+twinprimes(2, 4)
+twinprimes(4, 12)
 //Twin Primes List
-def twinprimeslist (n: Int): List[Int]= {
-//something
-  print ("hi")
-}
+def twinprimeslist (n: Int): List[Int]= ???
 
 
 
 //Goldbach's Conjecture
-
+def goldbach = ???
 
