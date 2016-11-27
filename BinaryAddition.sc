@@ -21,20 +21,30 @@ val test4ExectedSolution: List[Int] = List(1, 0, 1, 1, 1, 0, 1)
 
 // This function does the binary addition when there are uneven lists and still must
 // finish the add with the carry bits.
-def finishBinaryAdd(remainingBits: List[Boolean], carryBit: Boolean): List[Boolean] = ???
+def finishBinaryAdd(remainingBits: List[Boolean], carryBit: Boolean): List[Boolean] = {
+  (List.empty == true, carryBit == true) match {
+    case (false, false) => return List()
+    case (true, true) => return List(true)
+    case (false, true) => return not(List.head) : finishBinaryAddition(List.tail, List.head)
+  }
+}
 
 // This function determines what the next carry bit should be based on current bits.
-def getNextCarryBit(pBit: Boolean, qBit: Boolean, carrybit: Boolean): Boolean = ???
+def getNextCarryBit(pBit: Boolean, qBit: Boolean, carryBit: Boolean): Boolean = {
+  (pBit & qBit | qBit & carryBit | pBit & carryBit)
+}
 
 // This function does the binary addition of two Booleans and a carry bit.
-def addBits(pBit: Boolean, qBit: Boolean, carryBit: Boolean): Boolean = ???
+def addBits(pBit: Boolean, qBit: Boolean, carryBit: Boolean): Boolean =
+  (pBit, qBit, carryBit) = ((carryBit)==(pBit == qBit))
+
 
 // This function does the binary addition of two boolean lists. Note that the lists may not be equal in length.
 def doBinaryAddition(pBits: List[Boolean], qBits: List[Boolean], carryBit: Boolean): List[Boolean] = {
-  (pBits == true, qBits == true, carryBit == true) match{
-    case (false, true, true) =>
-    case (true, false, true) =>
-    case (true, true, true) =>
+  (pBits == true, qBits == true) match{
+    case (false, true) => finishBinaryAdd(qBits, carryBit)
+    case (true, false) => finishBinaryAdd(pBits, carryBit)
+    case (true, true) => addBits(pBits.head, qBits.head, carryBit):: doBinaryAddition(pBits.tail, qBits.tail, getNextCarryBit(pBits.head, qBits.head, carryBit))
   }
 }
 
