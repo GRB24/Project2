@@ -31,7 +31,11 @@ def addBits(pBit: Boolean, qBit: Boolean, carryBit: Boolean): Boolean = ???
 
 // This function does the binary addition of two boolean lists. Note that the lists may not be equal in length.
 def doBinaryAddition(pBits: List[Boolean], qBits: List[Boolean], carryBit: Boolean): List[Boolean] = {
-  (pBits)
+  (pBits == true, qBits == true, carryBit == true) match{
+    case (false, true, true) =>
+    case (true, false, true) =>
+    case (true, true, true) =>
+  }
 }
 
 // This function takes a list of any type and returns the list in reverse order.
