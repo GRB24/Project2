@@ -79,5 +79,6 @@ def helper(n: Int, a: Int, b: Int): Unit = {
 }
 //Test
 goldbach(28)
-goldbach(50)
+goldbach(-28)
 goldbach(2)
+goldbach(50)
