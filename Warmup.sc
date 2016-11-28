@@ -36,10 +36,21 @@ twinprimes(3, 11)
 twinprimes(2, 4)
 twinprimes(4, 12)
 //Twin Primes List
-def twinprimeslist (n: Int): List[Int]= ???
+def twinprimeslist (n: Int): List[Int]= {
+  require(n>=2)
+  val acc = 3 to n by 2 toList
+  def primes(acc: List[Int], primel: List[Int]): List[Int] = acc match{
+    case Nil => primel
+    case _ if primel.exists(acc.head% _ == 0) => primes(acc.tail, primel)
+    case _ => primes(acc.tail, acc.head ::primel)
+  }
+  primes(acc,List(2)).reverse
+}
+//Test
+twinprimeslist(35)
 
 
 
 //Goldbach's Conjecture
 def goldbach = ???
-
+//Test
