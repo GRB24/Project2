@@ -17,6 +17,7 @@ def primeFind (n: Int, divisor: Int): Boolean = {
 //Test
 prime(5)
 prime(44)
+
 //Twin Primes
 def twinprimes (x: Int, y: Int): Boolean = {
   (prime(x)== true, prime(y) == true, diff2(x, y) == true) match{
@@ -35,6 +36,7 @@ twinprimes(3,5)
 twinprimes(3, 11)
 twinprimes(2, 4)
 twinprimes(4, 12)
+
 //Twin Primes List
 def twinprimeslist (n: Int): List[Int]= {
   require(n>=2)
@@ -49,8 +51,33 @@ def twinprimeslist (n: Int): List[Int]= {
 //Test
 twinprimeslist(35)
 
-
-
 //Goldbach's Conjecture
-def goldbach = ???
+def goldbach (n: Int): Unit = {
+  ((n > 2) && (n % 2 == 0)) match{
+    case true => {
+      var a: Int = 0
+      var b: Int = n
+      helper(n, a, b)
+    }
+    case false => println("Integer must be above 2 and positive")
+  }
+}
+def helper(n: Int, a: Int, b: Int): Unit = {
+  (((prime(b)) && (prime(a))), (!(a + b ==n ))) match {
+    case (true, true) => {
+      var one = a + 1
+      var two = b - 1
+      helper(n, one, two)
+    }
+    case (true, false) => println("Returns: "+ a +" + " + b +" = " + n)
+    case (false, _ ) => {
+      var one = a + 1
+      var two = b - 1
+      helper(n, one, two)
+    }
+  }
+}
 //Test
+goldbach(28)
+goldbach(50)
+goldbach(2)
