@@ -85,3 +85,14 @@ if (binaryAddition(pTest4, qTest4).equals(test4ExectedSolution)) println("Test 4
 //binarySubtraction()
 //1-2 lines code
 
+def binarySubtraction(pList: List[Int], qList: List[Int]): List[Int] = {
+  convertBooleanListToIntList(doBinarySubtraction(convertIntListToBooleanList(pList).reverse, convertIntListToBooleanList(qList).reverse)).reverse
+}
+def doBinarySubtraction(pBits: List[Boolean], qBits: List[Boolean]): List[Boolean] = {
+  ((pBits.isEmpty) && (!qBits.isEmpty), (!pBits.isEmpty) && (qBits.isEmpty), (!pBits.isEmpty) && (!qBits.isEmpty)) match {
+    case (true, _, _) => finishBinaryAdd(qBits, false)
+    case (false, true, _) => finishBinaryAdd(pBits, false)
+    case (false, false, true) => addBits(pBits.head, qBits.head, false) :: doBinaryAddition(pBits.tail, qBits.tail, getNextCarryBit(pBits.head, qBits.head, false))
+    case (false, false, false) => Nil
+  }
+}
